@@ -31,15 +31,15 @@ const Contact = () => {
 
   try {
     const response = await fetch('https://send-mail-lalasa.vercel.app/api/send-email', {
-      method: 'POST',
-      headers: {
+    method: 'POST',
+    headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+    },
+    body: JSON.stringify({
         subject: 'Portfolio', // Fixed subject
         message: formattedMessage, // Use the formatted message
-      }),
-    });
+    }),
+});
 
     if (!response.ok) {
       throw new Error('Network response was not ok');
