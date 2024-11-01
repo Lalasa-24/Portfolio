@@ -35,7 +35,7 @@ const Header = () => {
           <li><a href="#" style={linkStyle} onClick={handleResumeDownload}><FaFileAlt style={iconStyle}/> Resume</a></li>
           <li><a href="#projects" style={linkStyle} onClick={handleScrollTo}><FaProjectDiagram style={iconStyle}/> Projects</a></li>
 
-          <li><a href="#blogs" style={linkStyle} onClick={handleScrollTo}><FaBlog style={iconStyle}/> Blogs</a></li>
+         
         </ul>
       </nav>
     </header>
