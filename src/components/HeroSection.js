@@ -3,7 +3,7 @@ import './HeroSection.css';
 import lalasaImage from './images/lalasa.jpeg';
 
 const HeroSection = () => {
-  const designations = ["Software Engineer", "Open Source Contributor", "Web Developer", "Tech Enthusiast"];
+  const designations = ["Software Engineer", "Web Developer", "React Developer"];
   const [currentDesignationIndex, setCurrentDesignationIndex] = useState(0);
   const [typedText, setTypedText] = useState('');
   const [typingIndex, setTypingIndex] = useState(0);
