@@ -17,35 +17,47 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError(''); // Reset any previous errors
+  e.preventDefault();
+  setError(''); // Reset any previous errors
 
-    try {
-      const response = await fetch('https://send-mail-lalasa.vercel.app/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+  const currentDateTime = new Date().toLocaleString(); // Get the current date and time
+  const formattedMessage = `
+    Name: ${formData.name}\n
+    Email: ${formData.email}\n
+    Subject: ${formData.subject}\n
+    Thoughts:\n${formData.message}\n
+    Time and Date: ${currentDateTime}
+  `;
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+  try {
+    const response = await fetch('https://send-mail-lalasa.vercel.app/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        subject: 'Portfolio', // Fixed subject
+        message: formattedMessage, // Use the formatted message
+      }),
+    });
 
-      setIsSubmitted(true); // Set success state
-      // Reset the form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-    } catch (err) {
-      console.error('Error:', err); // Log the error
-      setError('Failed to send the message. Please try again later.');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-  };
+
+    setIsSubmitted(true); // Set success state
+    // Reset the form
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
+  } catch (err) {
+    console.error('Error:', err); // Log the error
+    setError('Failed to send the message. Please try again later.');
+  }
+};
 
   return (
     <section id="contact" style={contactSectionStyle}>
