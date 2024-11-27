@@ -23,20 +23,25 @@ const About = () => {
     </section>
   );
 };
-
 const aboutStyle = {
-  height: '90vh',
-  padding: '50px',
+  height: 'auto',        // Allows the height to adjust automatically based on content
+  minHeight: '90vh',    // Sets the minimum height to 100vh
+  padding: '2em',
   background: '#16213e',
   color: '#fff',
   textAlign: 'center',
 };
 
+
 const contentStyle = {
-  display: 'flex',
+  // display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
-  height: '100%',
+  // justifyContent: 'space-between',
+  // height: '100%',
+      display: "flex",
+      justifyContent: "center",
+      gap: "5em",
+      flexWrap: "wrap",
 };
 
 const textStyle = {
