@@ -68,6 +68,7 @@ section#home {
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-right:5%;
   width: 400px; /* Maintain fixed width */
   height: 400px; /* Maintain fixed height */
 }
