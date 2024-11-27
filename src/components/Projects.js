@@ -2,7 +2,6 @@ import React from "react";
 import agreementTrackingImg from "./images/Legal.png";
 import suicidalIdeationImg from "./images/Suicidal_Ideation.png";
 import reactDashboardImg from "./images/Dashboard.png";
-
 const Projects = () => {
   const projects = [
     {
