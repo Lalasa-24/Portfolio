@@ -11,6 +11,7 @@ section#home {
   text-align: left;
   font-family: Arial, sans-serif;
   padding: 5rem;
+  /* padding-left:5%; */
 }
 
 /* CSS for the waving hand emoji */
@@ -68,7 +69,6 @@ section#home {
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-right:5%;
   width: 400px; /* Maintain fixed width */
   height: 400px; /* Maintain fixed height */
 }
@@ -110,7 +110,7 @@ section#home {
     text-align: center;
     padding-left: 0;
     margin-bottom: 1rem;
-    padding-top: 5%;;
+    padding-top: 5%;
     flex: 1 1 50%; /* Take half of the width on smaller screens */
   }
 
@@ -120,6 +120,7 @@ section#home {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-right: 20px; /* Add some space to the right side */
     width: 400px; /* Keep fixed width */
     height: 400px; /* Keep fixed height */
   }
