@@ -7,17 +7,14 @@ const Skills = () => {
   return (
     <section id="skills" style={skillsStyle}>
       <h2 style={h2Style}>Skills</h2>
-      
-      {/* Grid for All Skills (single column layout) */}
-      <div style={gridContainerStyle}>
-        {/* Skills Icons */}
-        <div style={skillsGridStyle}>
-          {skills.map((skill, index) => (
-            <div key={index} style={skillItemStyle}>
-              {skill.icon}
-            </div>
-          ))}
-        </div>
+      <br></br>
+      {/* Container for all skills */}
+      <div style={flexContainerStyle}>
+        {skills.map((skill, index) => (
+          <div key={index} style={skillItemStyle}>
+            {skill.icon}
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -42,27 +39,25 @@ const skills = [
 
 // Styles
 const skillsStyle = {
-  padding: '50px',
+  padding: '80px',
   background: 'linear-gradient(90deg, #1a1a2e, #16213e)',
   color: '#fff',
   textAlign: 'center',
-  height: '90vh',
+  minHeight: '100vh', // Ensures the section takes up the full viewport height
+  overflow: 'hidden', // Prevent content from spilling out
 };
 
-const gridContainerStyle = {
-  display: 'grid',
-  gridTemplateColumns: '1fr', // Single column layout
-  gap: '40px',
+const flexContainerStyle = {
+  display: 'flex',
+  flexWrap: 'wrap', // Allow items to wrap onto new lines
+  justifyContent: 'center', // Center items horizontally
+  gap: '80px', // Space between items
   marginLeft: '3%',
   marginRight: '3%',
+  paddingBottom: '50px', // Add bottom padding to avoid content being too close to the edge
 };
 
-const skillsGridStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(5, 1fr)', // Display 5 icons in a row
-  gap: '20px',
-};
-
+// Individual skill item styles
 const skillItemStyle = {
   display: 'flex',
   justifyContent: 'center',
@@ -71,12 +66,52 @@ const skillItemStyle = {
   borderRadius: '8px',
   backgroundColor: '#16213e',
   transition: 'transform 0.3s, background-color 0.3s',
+  minWidth: '100px', // Ensure consistent size
+  height: '100px',
+  maxWidth: '120px', // Limit size on large screens
+  width: 'calc(20% - 20px)', // 5 items per row (100% / 5 = 20%), subtract gap to fit
 };
 
-// Styles for headings
+// Heading styles
 const h2Style = {
   color: 'white',
   fontSize: '30px',
+  marginBottom: '20px', // Space between heading and icons
 };
+
+// Responsive styles using media queries (added extra backticks)
+const responsiveStyles = `
+  @media (max-width: 768px) {
+    #skills div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 20px;
+      padding: 20px;
+    }
+    #skills div > div {
+      width: calc(33.33% - 20px); /* 3 items per row on smaller screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    #skills div {
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    #skills div > div {
+      width: calc(50% - 20px); /* 2 items per row on small screens */
+    }
+  }
+`;
+
+// Inject styles into the document
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = responsiveStyles;
+document.head.appendChild(styleSheet);
 
 export default Skills;
