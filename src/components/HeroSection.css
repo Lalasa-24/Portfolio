@@ -1,87 +1,147 @@
+/* General styles */
+section#home {
+  height: 100vh;
+  display: flex;
+  flex-direction: row; /* Keep row layout */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #1a1a2e, #16213e);
+  color: #fff;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+}
+
 /* CSS for the waving hand emoji */
 .wave {
-    display: inline-block;
-    animation: wave-animation 2s infinite;
-    transform-origin: 70% 70%;
-  }
-  
-  @keyframes wave-animation {
-    0% { transform: rotate(0deg); }
-    10% { transform: rotate(14deg); }
-    20% { transform: rotate(-8deg); }
-    30% { transform: rotate(14deg); }
-    40% { transform: rotate(-4deg); }
-    50% { transform: rotate(10deg); }
-    60% { transform: rotate(0deg); }
-    100% { transform: rotate(0deg); }
-  }
-  
-  /* CSS for the typing effect */
-  .designation {
-    font-size: 35px;
-    color: #1E90FF;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
-  .cursor {
-    font-size: 35px;
-    color: #1E90FF;
-    opacity: 1;
-    animation: blink 0.7s infinite;
-  }
-  
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  
-  /* Layout styling */
+  display: inline-block;
+  animation: wave-animation 2s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* CSS for the typing effect */
+.designation {
+  font-size: 35px;
+  color: #1E90FF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word; /* Break long words if needed */
+}
+
+.cursor {
+  font-size: 35px;
+  color: #1E90FF;
+  opacity: 1;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Layout styling */
+.text-container {
+  flex: 1; /* Allow the text container to take the remaining space */
+  padding-left: 5%;
+  min-width: 0; /* Prevent overflow */
+}
+
+/* Layout styling */
+.image-container {
+  flex: 0 0 auto; /* Prevent shrinking */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 400px; /* Maintain fixed width */
+  height: 400px; /* Maintain fixed height */
+}
+
+.shadow-effect {
+  width: 100%;
+  height: 100%;
+  max-width: 400px; /* Keep the original max width */
+  max-height: 400px; /* Keep the original max height */
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 8px rgba(30, 144, 255, 0.6);
+  overflow: hidden;
+}
+
+/* SVG circle for pulse animation */
+.pulse-circle {
+  position: absolute;
+  width: 450px; /* Maintain original size */
+  height: 450px;
+  fill: none;
+  stroke: #1E90FF;
+  stroke-width: 5;
+  stroke-dasharray: 565;
+  stroke-dashoffset: 0;
+  animation: pulse 2s infinite;
+  opacity: 0.5;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Responsive styling for tablet and smaller devices */
+@media (max-width: 768px) {
   .text-container {
-    flex: 1;
-    padding-left: 5%;
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 1rem;
+    padding-top: 5%;;
+    flex: 1 1 50%; /* Take half of the width on smaller screens */
   }
-  
+
   .image-container {
-    flex: 1;
-    position: relative;
+    flex: 0 0 auto; /* Take half of the width for the image container */
+    height: auto; /* Adjust height automatically */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 7%;
-    width: 400px;
-    height: 400px;
+    width: 400px; /* Keep fixed width */
+    height: 400px; /* Keep fixed height */
   }
-  
+
   .shadow-effect {
-    width: 100%;
-    height: 100%;
-    max-width: 400px;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0px 0px 10px 8px rgba(30, 144, 255, 0.6);
-    overflow: hidden;
+    max-width: 300px; /* Maintain fixed size */
+    max-height: 300px;
   }
-  
-  /* SVG circle for pulse animation */
+
   .pulse-circle {
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    fill: none;
-    stroke: #1E90FF;
-    stroke-width: 5;
-    stroke-dasharray: 565;
-    stroke-dashoffset: 0;
-    animation: pulse 2s infinite;
-    opacity: 0.5;
+    width: 350px; /* Keep original size */
+    height: 350px;
   }
-  
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.5; }
+
+  section#home {
+    flex-direction: row; /* Keep row layout */
+    justify-content: center; /* Center the content */
+    gap: 1rem; /* Add spacing between elements */
+    text-align: center;
   }
-  
+
+  .designation {
+    font-size: 24px; /* Adjust font size */
+    word-wrap: break-word;
+  }
+}
