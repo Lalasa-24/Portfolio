@@ -3,7 +3,7 @@ import './HeroSection.css';
 import lalasaImage from './images/lalasa.jpeg';
 
 const HeroSection = () => {
-  const designations = ["Software Engineer", "Web Developer", "React Developer"];
+  const designations = ["Software Engineer", "Web Developer", "Tech Enthusiast"];
   const [currentDesignationIndex, setCurrentDesignationIndex] = useState(0);
   const [typedText, setTypedText] = useState('');
   const [typingIndex, setTypingIndex] = useState(0);
@@ -48,13 +48,16 @@ const HeroSection = () => {
   }, [typingIndex, isTyping, isDeleting, typedText, currentDesignationIndex]);
 
   return (
-    <section id="home" style={heroStyle}>
-      <div className="text-container" style={{ marginLeft: '10%' }}>
-      <h1 style={{ fontSize: '2.3rem' }}>Hi There! <span className="wave">👋</span></h1>
-      <h2 style={{ fontSize: '2.3rem' }}>
-        I'M <span style={{ color: '#1E90FF' }}>LALASA NAVYA</span>
-      </h2>
-        <h3 style={{ fontSize: '2.5rem' }}className="designation">{typedText}<span className="cursor">{isTyping || isDeleting ? '|' : ''}</span></h3>
+    <section id="home">
+    
+      <div className="text-container">
+        <h1 style={{ fontSize: '2.3rem' }}>Hi There! <span className="wave">👋</span></h1>
+        <h2 style={{ fontSize: '2.3rem' }}>
+          I'M <span style={{ color: '#1E90FF' }}>LALASA NAVYA</span>
+        </h2>
+        <h3 className="designation">
+          {typedText}<span className="cursor">{isTyping || isDeleting ? '|' : ''}</span>
+        </h3>
       </div>
       <div className="image-container">
         <svg className="pulse-circle" viewBox="0 0 200 200">
@@ -64,18 +67,6 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
-
-const heroStyle = {
-  height: '100vh',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  background: 'linear-gradient(90deg, #1a1a2e, #16213e)',
-  color: '#fff',
-  textAlign: 'left',
-  fontFamily: 'Arial, sans-serif',
 };
 
 export default HeroSection;
