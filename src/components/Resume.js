@@ -1,6 +1,6 @@
 // components/Resume.js
 import React from 'react';
-import lalasaresume from './images/LalasaCV.pdf'; // Importing the resume PDF
+import lalasaresume from './images/Lalasa_CV.pdf'; // Importing the resume PDF
 
 const Resume = () => {
   return (
